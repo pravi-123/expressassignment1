@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Top 10 Movies</title>
+      <meta name="description" content="Source code generated using layoutit.com">
+      <meta name="author" content="LayoutIt!">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <nav class="navbar navbar-default navbar-inverse" role="navigation">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                  </button> <a class="navbar-brand" href="#">TOP 10 MOVIES TO SEE BEFORE I DIE</a>
+               </div>
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                  </ul>
+                  <form class="navbar-form navbar-right" role="search">
+                     <!-- Button trigger modal -->
+                     <button type="button" class="btn btn-primary btn-lg" id="adbt" data-toggle="modal" data-target="#myModal">
+                     Add Movie
+                     </button>
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                     <li>
+                        <a href="index.html">Home</a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- Modal to show Know More,Update Details, Add new movie popup -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Add Movie</h4>
+               </div>
+               <div class="modal-body">
+                  <form action="addMovie" method="post" enctype="multipart/form-data">
+                     <div class="form-group row">
+                        <label for="title" class="col-sm-4 form-control-label">Title:</label>
+                        <div class="col-sm-8 title">
+                           <input type="text" class="form-control" id="title" placeholder="Movie Title" name="title" required="required">
+                        </div>
+                        <div class="col-sm-8 title-info">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label for="releasedate" class="col-sm-4 form-control-label">Release Date:</label>
+                        <div class="col-sm-8 date">
+                           <input type="date" class="form-control" id="releasedate" placeholder="Release Date" name="date" required="required">
+                        </div>
+                        <div class="col-sm-8 date-info">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label for="director" class="col-sm-4 form-control-label">Director:</label>
+                        <div class="col-sm-8 director">
+                           <input type="text" class="form-control" id="director" placeholder="Director Name" name="director" required="required">
+                        </div>
+                        <div class="col-sm-8 director-info">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label for="actors" class="col-sm-4 form-control-label">Actors:</label>
+                        <div class="col-sm-8 actors">
+                           <input type="text" class="form-control" id="actors" placeholder="Actors" name="actors" required="required">
+                        </div>
+                        <div class="col-sm-8 actors-info">
+                        </div>
+                     </div>
+                     <div class="form-group row ">
+                        <label for="about" class="col-sm-4 form-control-label">About Movie:</label>
+                        <div class="col-sm-8 about">
+                           <textarea class="form-control" id="about" name="about" rows="5" cols="10">
+                           </textarea>
+                        </div>
+                        <div class="col-sm-8 about-info">
+                        </div>
+                     </div>
+                     <div class="form-group row ">
+                        <label for="rating" class="col-sm-4 form-control-label">Rating(out of 5):</label>
+                        <div class="col-sm-8 rating">
+                           <select class="form-control " id="rating" name="rating">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                           </select>
+                        </div>
+                        <div class="col-sm-8 rating-info">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label for="awards" class="col-sm-4 form-control-label">Awards:</label>
+                        <div class="col-sm-4 wins">
+                           <input type="text" class="form-control" id="wins" value="0" name="wins" >Wins
+                        </div>
+                        <div class="col-sm-4 nominations">
+                           <input type="text" class="form-control" id="nominations" value="0" name="nominations">Nominations
+                        </div>
+                        <div class="col-sm-8 awards-info">
+                        </div>
+                     </div>
+                     <div class="form-group row posterdiv">
+                        <label for="poster" class="col-sm-4 form-control-label">Movie Poster:</label>
+                        <div class="col-sm-8">
+                           <input type="file" name="image" class="form-control" id="poster"/>
+                        </div>
+                     </div>
+                     <div class="form-group row trailerdiv">
+                        <label for="poster" class="col-sm-4 form-control-label">Movie Trailer Link:</label>
+                        <div class="col-sm-8 trailer">
+                           <input type="text" name="ytlink" class="form-control" id="ytlink"/>
+                        </div>
+                        <div class="col-sm-8 trailer-info">
+                        </div>
+                     </div>
+               </div>
+               <div class="form-group row adbt">
+               <div class="col-sm-offset-4 col-sm-8">
+               <button type="submit" class="btn btn-primary btn-lg">Add to list</button>
+               </div>
+               </div>
+               <div class="form-group row upbt hidden">
+               <div class="col-sm-offset-4 col-sm-8">
+               <button type="submit" formaction="updateMovie" class="btn btn-primary btn-lg">Update Details</button>
+               </div>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!--Modal popup to confirm delete operation -->
+      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Delete Movie</h4>
+               </div>
+               <div class="modal-body">
+                  <p>Are you sure want to delete this movie?</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <a href="#" class="btn btn-primary dlbt">Delete Movie</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Carousel to display images-->
+      <div class="row">
+         <div class="col-md-12">
+            <div class="carousel slide" id="carousel-192739" data-ride="carousel">
+               <ol class="carousel-indicators">
+                  <li class="active" data-slide-to="0" data-target="#carousel-192739">
+                  </li>
+                  <li data-slide-to="1" data-target="#carousel-192739">
+                  </li>
+                  <li data-slide-to="2" data-target="#carousel-192739">
+                  </li>
+               </ol>
+               <div class="carousel-inner">
+                  <div class="item active">
+                     <img alt="Carousel Bootstrap First" calss="" src="images/cr1.jpg">
+                  </div>
+                  <div class="item">
+                     <img alt="Carousel Bootstrap Second" src="images/cr2.jpg">
+                  </div>
+                  <div class="item">
+                     <img alt="Carousel Bootstrap Third" src="images/cr3.jpg">
+                  </div>
+               </div>
+               <a class="left carousel-control" href="#carousel-192739" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-192739" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+         </div>
+      </div>
+      <div id="movies"></div>
+      <div class="clearfix"></div>
+      <!--Footer-->
+      <div class="container">
+         <footer class="footer-distributed">
+            <div class="footer-left">
+               <h3>Top 10<span> Movies To see</span></h3>
+               <p class="footer-links">
+                  <a href="index.html">Home</a>
+                  ·
+                  <a href="#" id="adbtlink" data-toggle="modal" data-target="#myModal">Add Movie</a>
+               </p>
+               <p class="footer-company-name">Top10 &copy; 2015</p>
+            </div>
+            <div class="footer-center">
+               <div>
+                  <i class="fa fa-map-marker"></i>
+                  <p><span>1<sup>st</sup> Avenue Teacher's colony</span> Bangalore, India</p>
+               </div>
+               <div>
+                  <i class="fa fa-phone"></i>
+                  <p>+1 555 123456</p>
+               </div>
+               <div>
+                  <i class="fa fa-envelope"></i>
+                  <p><a href="mailto:support@top10.com">support@top10.com</a></p>
+               </div>
+            </div>
+            <div class="footer-right">
+               <p class="footer-company-about">
+                  <span>About the company</span>
+                  We will display top 10 movies based on feedback received from socail networking sites.
+               </p>
+               <div class="footer-icons">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="#"><i class="fa fa-github"></i></a>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/scripts.js"></script>
+   </body>
+</html>
